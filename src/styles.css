@@ -1,41 +1,54 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap');
+:root {
+    --main-color:hsl(257, 40%, 49%)
+}
 
-body {
+* {
+    box-sizing: border-box;
+    padding: 0;
     margin: 0;
 }
 
+html {
+    font-size: 62.5%;
+}
+
 .container {
-    width: 100%;
-    height: 100vh;
-    background-color: #673ab7;
-    background-image: url('../images/bg-desktop.svg');
+    width: 100vw;
+    height: 100%;
+    background-color: var(--main-color);
+    background-image: url('../images/bg-mobile.svg');
     background-size: contain;
     background-repeat: no-repeat;
-    background-position: center;
 }
 
 /* header */
 .container__header {
-    height: 150px;
+    width: 100vw;
+    height: 100px;
     display: flex;
     align-items: center;
-    margin-left: 70px
+    padding-left: 4rem;
 }
 
-.container__header nav img {
-    width: 200px;
+.container__header nav a img {
+    width: 12rem;
 }
 
 /* container information */
 .container__info {
+    width: 100vw;
+    height: auto;
+    margin-top: 25px;
     display: flex;
-    justify-content: space-between;
-    margin: 0 70px;
+    flex-direction: column;
+    align-items: center;
 }
 
 
 .container__info--image {
-    width: 50%;
+    width: 80%;
 }
 
 .container__info--image img {
@@ -43,29 +56,41 @@ body {
 }
 
 .container__info--description {
-    width: 40%;
-    padding-left: 50px;
+    width: 100vw;
+    height: auto;
     color: white;
     font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 60px;
 }
 
 .container__info--description h1 {
-    font-size: 2.5em;
+    font-size: 2.5rem;
+    font-weight: 400;
+    text-align: center;
+    width: 27rem;
 }
 
 .container__info--description p {
-    text-align: justify;
-    font-size: 1em;
+    text-align: center;
+    font-size: 1.4rem;
+    width: 30rem;
+    font-family: 'Open Sans', sans-serif;
+    margin: 20px 0;
+    font-weight: 100;
+    letter-spacing: 1px;
 }
 
 .container__info--description button {
-    width: 220px;
-    height: 60px;
+    width: 19rem;
+    height: 3.5rem;
     border-radius: 100px;
     outline: none;
     border: none;
-    font-size: 20px;
-    box-shadow:  2px 2px 20px 0px;
+    font-size: 1.2rem;
+    box-shadow: 2px 2px 20px 0px;
     color: #3c3838;
     cursor: pointer;
 }
@@ -77,149 +102,119 @@ body {
 /* footer */
 .footer {
     width: 100%;
-    height: 80px;
+    height: auto;
     display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
+    justify-content: center;
+    align-items: center;
 }
 
 .logo__social a img {
-    width: 40px;
-}
-
-.footer nav {
-    margin-right: 70px;
-    display: flex;
-    justify-content: flex-end;
+    width: 3rem;
 }
 
 .logo {
-    width: 9em;
+    width: 8rem;
+    margin-top: 70px;
+    margin-bottom: 50px;
     list-style: none;
-    margin: 0;
-    padding: 0;
     display: flex;
     justify-content: space-between;
 }
 
 /* media queries */
 
-@media screen and (max-width: 1250px) {
-    .container__info--description h1 {
-        font-size: 1.8em;
-    }
-
-    .container__info--description button {
-        width: 180px;
-        height: 50px;
-    }
-}
-
-@media screen and (max-width: 938px) {
+@media (min-width:1024px) {
     .container {
+        background-image: url('../images/bg-desktop.svg');
+        height: 100vh;
         background-size: cover;
     }
 
+    .container__header {
+        padding: 0 6rem;
+    }
+
+    .container__header nav a img {
+        width: 15rem;
+    }
+
+    .container__info {
+        flex-direction: row;
+        padding: 0 6rem;
+    }
+
+    .container__info--image {
+        width: 155%;
+    }
+
+    .container__info--description {
+        width: 100%;
+        margin: 0;
+        padding-left: 5rem;
+        align-items: initial;
+    }
+
     .container__info--description h1 {
-        font-size: 1.3em;
+        font-size: 3rem;
+        font-weight: 400;
+        text-align: inherit;
+        width: 35rem;
     }
 
     .container__info--description p {
         text-align: justify;
-        font-size: 0.9em;
+        font-size: 1.4rem;
+        width: 35rem;
+        letter-spacing: 0;
     }
 
     .container__info--description button {
-        width: 170px;
-        height: 50px;
-    }
-}
-
-@media screen and (max-width: 626px) {
-    .container {
-        width: 100%;
-        height: 100%;
-        background-image: url('../images/bg-mobile.svg');
-    }
-
-    .container__info {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .container__info--image {
-        width: 100%;
-    }
-
-    .container__info--description {
-        width: 100%;
-        padding-left: 0;
-    }
-
-    .container__info--description button {
-        margin-top: 10px;
-    }
-}
-
-@media screen and (max-width: 426px) {
-    .container {
-        background-size: contain;
-        background-position: top;
-    }
-
-    .container__header {
-        height: 150px;
-    }
-
-    .container__info--description h1 {
-        text-align: center;
-    }
-
-    .container__info--description p {
-        text-align: center;
-    }
-
-    .container__info--description {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .container__info--description button {
-        width: 15em;
-        height: 35px;
-        font-size: 12px;
+        width: 12rem;
     }
 
     .footer {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        height: 10rem;
     }
 
-    .footer nav {
-        margin: 15px 0 0 0;
+    .logo {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .footer {
+        height: 10rem;
+        justify-content: flex-end;
+        padding: 0 6rem;
     }
 }
 
-@media screen and (max-width: 321px) {
+@media (min-width: 1440px) {
     .container {
-        height: 100vh;
+        height: 100%;
     }
 
-    .container__header {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0;
+    .container__info {
+        align-items: inherit;
+    }
+
+    .container__info--description {
+        margin: 80px 0 0 0;
     }
 
     .container__info--description h1 {
-        font-size: 1em;
+        font-size: 4rem;
+        width: 45rem;
     }
 
     .container__info--description p {
-        font-size: 0.7em;
+        font-size: 1.6rem;
+        width: 45rem;
+        letter-spacing: 0;
+    }
+
+    .container__info--description button {
+        width: 17rem;
+        height: 5rem;
+        font-size: 1.6rem;
     }
 }
